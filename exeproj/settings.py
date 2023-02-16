@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
 from pathlib import Path
+from decouple import config
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -21,9 +22,10 @@ STATIC_DIR = Path.joinpath(BASE_DIR, 'static')
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "django-insecure-6z+bd4q(jqpr2@&!7l0efx2w_a^6su@f!u579-60l6#o2!p+yj"
+
 
 # SECURITY WARNING: don't run with debug turned on in production!
+SECRET_KEY = config("SECRET_KEY") # this is to replace the secret key you cut away before
 DEBUG = True
 
 ALLOWED_HOSTS = []
